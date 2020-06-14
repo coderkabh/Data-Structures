@@ -15,9 +15,17 @@ public class MyLinkedList<E> {
     return response;
     }
 
-    void push( E item){
-
+    void addFirst(E item){
+        head = new Node<E>(item,head);
+        size++;
     }
+
+    void addAfter(Node<E> node,E item){
+        node.next = new Node<>(item,node.next);
+        size++;
+    }
+
+    
 
     private static class Node<E> {
         E data;
