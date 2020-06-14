@@ -25,7 +25,22 @@ public class MyLinkedList<E> {
         size++;
     }
 
-    
+    void add(int index, E item){
+            if(index > size || index < 0){
+                throw new IndexOutOfBoundsException(Integer.toString(index));
+            }
+            else if(index == 0 ){
+                addFirst(item);
+            }
+            else{
+                Node<E> n = getNode(index-1);
+                addAfter(n,item);
+            }
+    }
+
+    public void add(E item){
+        add(size,item);
+    }
 
     private static class Node<E> {
         E data;
