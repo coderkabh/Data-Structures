@@ -2,14 +2,14 @@ package LinkedList;
 
 public class MyLinkedList<E> {
     Node<E> head;
-    int size;
+    public static int size;
 
     public boolean isEmpty(){
         return head == null;
     }
 
     public void add(E data){
-        Node<E> toAdd = new Node<>(data);
+        Node<E> toAdd = new Node<E>(data);
         if (isEmpty()){
             head = toAdd;
             size++;
@@ -21,6 +21,18 @@ public class MyLinkedList<E> {
             temp = temp.next;
         }
         temp.next = toAdd;
+    }
+
+    public static int getSize() {
+        return size;
+    }
+
+    public void printList(){
+        Node<E> temp = head;
+        while (temp!=null){
+            System.out.println(temp.data);
+            temp = temp.next;
+        }
     }
 
     static class Node<E>{
